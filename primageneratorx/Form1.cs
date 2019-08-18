@@ -24,49 +24,61 @@ namespace primageneratorx
         public const int _width = 260;
         public const int _height = 305;
 
-        public const string _base = "iVBORw0KGgoAAAANSUhEUgAAAQQAAAExCAMAAACtYSwmAAAABGdBTUEAALGPC/xhBQAAAwBQTFRFAAAAOzJ0TlJdYGVva3B7IrFM+rI8//IAqNrC2eDi8Pf58fj5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxapfrAAAAQB0Uk5T////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AFP3ByUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMjHxIGmVAAAKEElEQVR4Xu2a7Y7jOBIEb293Z7/e/3nnQsx0HU1RsmS75V4g44dQLBbJqgCmp4GZ//wMPyMBIgEiASIBIgEiASIBIgEiAf4tEn654fVbiQSIBPgXSfi78RUeIgEiAb6nBCbthyWWAdFvvYVIgEiAj0hoIy54PZv6119/rQyB57/RF79OJEAkwKck/LdBoHH4auphqRg8fId230IkQCTAZyWINuUCg5eKIebr4TtI+sbXiASIBPgmEn78+PHPP/8QFJIAFRNocPFGD5EAkQCXSVDnFXv+G2TwoLlEKzclAdiqI1ry1bVPEwkQCXClhN9++601/suff/7JV7MUZAYPop1YkAcyqqdYp1TjZ54iEiAS4DIJQKt4KBWapYfk1IPQKQJXv89DJEAkwJdKaF0bLSVBsNQsPSR3PMByV5safOZlD5EAkQBfLcED334OgNcNlh7jBpl9CaLddKdCGT98kkiASIDLJBRDkqWmECynEshvUQU67rfPEAkQCfClEoCuPG3H0nqXJ5YB0BYeBhV9zYCOQC399mEiASIBPiJhTY0glpHuVUwLvFjBlp8/RiRAJMBXSwBa8qi7tLE2VQxbYpoUbPn5A0QCRAJ8HwmCYvAkDWXA6xVbW+TdwSMiASIBLpAA9OMh71lm28CTdEyTYqvezz8iEiAS4BoJQEue/EZ1zt+A+rWwh12hGujjNdNdkn5+l0iASIDLJAAtef5G3/byS+GuCuHqho6A1y94iASIBLhAQmt/wuABPNUNdu2iMRQLVXox80DGfWwTCRAJcI2E5UfABtPRgLwGF/seHDXWNWTcygaRAJEAF0gA2vDMM9gFd3xjyLA8KAHWZ93HBpEA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";   
+        public const string _base = "iVBORw0KGgoAAAANSUhEUgAAAQQAAAExCAMAAACtYSwmAAAABGdBTUEAALGPC/xhBQAAAwBQTFRFAAAAOzJ0TlJdYGVva3B7IrFM+rI8//IAqNrC2eDi8Pf58fj5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxapfrAAAAQB0Uk5T////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AFP3ByUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMjHxIGmVAAAKcUlEQVR4Xu2a7ZLcRg4Ez2dZtuz3f15dsqsGh+HXkDO7nLVd+YOBRqO7gYzQaiOk//wMPyMBIgEiASIBIgEiASIBIgEiAf4uEn654fWHEgkQCfA3kvDn4DM8RAJEAnxNCUzahyWWAdG3PoRIgEiAt0gYI054vTb1r7/+WhkCz3+jF79OJEAkwLsk/HdAoHH4aurZUjF4+IZ2P4RIgEiA90oQY8oJBi8Vs5ivh2+Q9I2vEQkQCfBFJHz//v2vv/4iKCQBKibQ4OIDPUQCRAJcJkGdV+z5b5DBg+YSo9yUBGCrjmjJV9c+TSRAJMCVEr59+zYa/+WPP/7gq1kKMjMPYpyYkAcyqqdYp1TjZ54iEiAS4DIJQKt4KBWapUNy1YPQKQJXf5yHSIBIgE+VMLo2WkqCYKlZOiR3PMB015gafOZlD5EAkQCfLcED334OgNcDlh7jBpl9CWLcdKdCGT98kkiASIDLJBSzJEtNIViuSiC/RRXouN8+QyRAJMCnSgC68rSNqfWWJ5YB0BYeZip6zQwdgVr67cNEAkQCvEXCkhpBTCPdq1gt8GIBW37+GJEAkQCfLQFoyaPuMsbaVDHbEqtJwZafP0AkQCTA15EgKAZPMlAGvF6wtUXeHTwiEiAS4AIJQD8e8p5ptg08SWM1Kbbq/fwjIgEiAa6RALTkyW9U5/wNqF8LO+wK1UCPl6zukvTzu0QCRAJcJgFoyfMPetvTL4W7KoSrBzoCXr/gIRIgEuACCaP9FWYewFPdYNcuBrNioUov1jyQcR/bRAJEAlwjYfoRsMHqaEBeg4t9D44GyxoybmWDSIBIgAskAG145jXYBXd8Y5ZheVACLM+6jw0i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";   
         public Color baseprimary = ColorTranslator.FromHtml("#6b707b");
         public Color basesecondary = ColorTranslator.FromHtml("#d9e0e2");
         public Color basehighlight = ColorTranslator.FromHtml("#fab23c");
+
+        public string batchPath;
 
         private void button1_Click(object sender, EventArgs e)
         {
             string dim = textBox1.Text + "x" + textBox2.Text;
             try
             {
-                Thread a = new Thread(() => doPrima(dim));
+                Thread a = new Thread(() => doPrima(dim, true, true));
                 a.IsBackground = true;
                 a.Start();
             }
             catch
             {
-                doPrima("1x1");
+                doPrima("1x1", true, true);
             }
         }
 
         private string getName()
         {
-            WebClient w = new WebClient();
-            byte[] dat = w.DownloadData("https://namey.muffinlabs.com/name.json?type=surname");
-            string name = System.Text.Encoding.UTF8.GetString(dat);
-            name = name.Substring(2, name.Length - 4);
-            return name;
+            try
+            {
+                WebClient w = new WebClient();
+                byte[] dat = w.DownloadData("https://namey.muffinlabs.com/name.json?type=surname");
+                string name = System.Text.Encoding.UTF8.GetString(dat);
+                name = name.Substring(2, name.Length - 4);
+                return name;
+            }
+            catch
+            {
+                return "apiError";
+            }
         }
 
-        public void doPrima(string dim)
+        public Bitmap doPrima(string dim, bool doDisplayProc, bool doProgressProc)
         {
             String[] dimr = dim.Split('x');
             int dimx = Int32.Parse(dimr[0]);
             int dimy = Int32.Parse(dimr[1]);
             int numOfPrimas = dimx * dimy;
 
-            this.Invoke(new MethodInvoker(delegate ()
+            if (doProgressProc)
             {
-                progressBar1.Maximum = numOfPrimas;
-            }));
+                this.Invoke(new MethodInvoker(delegate ()
+                {
+                    progressBar1.Maximum = numOfPrimas;
+                }));
+            }
+
 
             string dppath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/dicpicbot_data/";
-            string tag = "-c";
             Size psize = new Size(_width, _height);
             Size mSize = getPrimSize(dim);
             Size newPrimaSize = getPrimSize(dim);
@@ -78,7 +90,7 @@ namespace primageneratorx
 
             foreach (Point p in positions)
             {
-                Bitmap prima = GetNewPrima(tag);
+                Bitmap prima = GetNewPrima();
                 if (checkBox2.Checked)
                 {
                     using (Graphics graphics = Graphics.FromImage(prima))
@@ -97,11 +109,14 @@ namespace primageneratorx
                 }
                 gr.DrawImage(prima, p);
                 count++;
-                this.Invoke(new MethodInvoker(delegate ()
-                {
-                    progressBar1.Value = count;
-                }));
 
+                if (doProgressProc)
+                {
+                    this.Invoke(new MethodInvoker(delegate ()
+                    {
+                        progressBar1.Value = count;
+                    }));
+                }
                 if (checkBox1.Checked){
                     this.Invoke(new MethodInvoker(delegate ()
                     {
@@ -110,15 +125,20 @@ namespace primageneratorx
                 }
             }
 
-            this.Invoke(new MethodInvoker(delegate ()
+            if (doDisplayProc)
             {
-                pictureBox1.Image = BaseBmp;
-            }));
+                this.Invoke(new MethodInvoker(delegate ()
+                {
+                    pictureBox1.Image = BaseBmp;
+                }));
+            }
+
+            return BaseBmp;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            doPrima("1x1");
+            doPrima("1x1", true, false);
         }
 
         public List<Point> getAllPositions(string dim)
@@ -151,7 +171,7 @@ namespace primageneratorx
             return new Size(basex * x, basey * y);
         }
 
-        public Bitmap GetNewPrima(string tag)
+        public Bitmap GetNewPrima()
         {
             Bitmap drawn = new Bitmap(_width, _height);
 
@@ -265,6 +285,55 @@ namespace primageneratorx
         {
             Form info = new info();
             info.Show();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    batchPath = fbd.SelectedPath;
+                }
+            }
+        }
+
+        public void doPrimaBatch()
+        {
+            for (int i = 0; i < numericUpDown1.Value + 1; i++)
+            {
+                Bitmap cur = doPrima("1x1", false, false);
+                cur.Save(batchPath + "/" + i + ".png", ImageFormat.Png);
+                this.Invoke(new MethodInvoker(delegate ()
+                {
+                    label3.Text = i + "/" + numericUpDown1.Value;
+                    progressBar1.Maximum = (int)numericUpDown1.Value;
+                    Console.WriteLine(i + "/" + (int)numericUpDown1.Value);
+                    progressBar1.Value = i;
+                }));
+
+                Thread.Sleep(25);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if(batchPath != "")
+            {
+                numericUpDown1.Enabled = false;
+                button4.Enabled = false;
+                button5.Enabled = false;
+                Thread a = new Thread(() => doPrimaBatch());
+                a.IsBackground = true;
+                a.Start();
+            }
         }
     }
 }
