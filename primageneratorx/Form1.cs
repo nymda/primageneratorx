@@ -47,17 +47,24 @@ namespace primageneratorx
 
         private string getName()
         {
-            try
+            if (textBox3.Text == "$rand")
             {
-                WebClient w = new WebClient();
-                byte[] dat = w.DownloadData("https://namey.muffinlabs.com/name.json?type=surname");
-                string name = System.Text.Encoding.UTF8.GetString(dat);
-                name = name.Substring(2, name.Length - 4);
-                return name;
+                try
+                {
+                    WebClient w = new WebClient();
+                    byte[] dat = w.DownloadData("https://namey.muffinlabs.com/name.json?type=surname");
+                    string name = System.Text.Encoding.UTF8.GetString(dat);
+                    name = name.Substring(2, name.Length - 4);
+                    return name;
+                }
+                catch
+                {
+                    return "apiError";
+                }
             }
-            catch
+            else
             {
-                return "apiError";
+                return textBox3.Text;
             }
         }
 
@@ -76,7 +83,6 @@ namespace primageneratorx
                 }));
             }
 
-            string dppath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/dicpicbot_data/";
             Size psize = new Size(_width, _height);
             Size mSize = getPrimSize(dim);
             Size newPrimaSize = getPrimSize(dim);
@@ -139,6 +145,119 @@ namespace primageneratorx
             doPrima("1x1", true, false);
         }
 
+        public Color randcolour()
+        {
+            Random rnd = new Random();
+            Color outlir = Color.FromArgb(getRandom(1, 255), getRandom(1, 255), getRandom(1, 255));
+            return outlir;
+        }
+
+        static Random rnd = new Random();
+
+        public int getRandom(int min, int max)
+        {
+            return rnd.Next(min, max);
+        }
+
+        public List<Color> getSimilarColours()
+        {
+            List<Color> lc = new List<Color> { };
+
+            int tol = 70;
+
+            Color outlier = randcolour();
+            Color colourone = randcolour();
+            Color colourtwo = randcolour();
+            Color colourthree = randcolour();
+            Color colourfour = randcolour();
+            Color colourfive = randcolour();
+            Color coloursix = randcolour();
+
+            bool opt0 = AreColorsSimilar(colourone, colourtwo, tol);
+            bool opt1 = AreColorsSimilar(colourtwo, colourthree, tol);
+            bool opt2 = AreColorsSimilar(colourthree, colourfour, tol);
+            bool opt3 = AreColorsSimilar(colourfour, colourfive, tol);
+            bool opt4 = AreColorsSimilar(colourfive, coloursix, tol);
+
+            Color averageclr = averagecolor(colourone, colourtwo, colourthree, colourfour, colourfive, coloursix);
+
+            bool optotlr = AreColorsUnSimilar(outlier, averageclr, tol);
+
+            while (!optotlr)
+            {
+                outlier = randcolour();
+                optotlr = AreColorsUnSimilar(outlier, averageclr, 20);
+            }
+
+            while (!opt0)
+            {
+                colourtwo = randcolour();
+                opt0 = AreColorsSimilar(colourone, colourtwo, tol);
+            }
+
+            while (!opt1)
+            {
+                colourthree = randcolour();
+                opt1 = AreColorsSimilar(colourtwo, colourthree, tol);
+            }
+
+            while (!opt2)
+            {
+                colourfour = randcolour();
+                opt2 = AreColorsSimilar(colourthree, colourfour, tol);
+            }
+
+            while (!opt3)
+            {
+                colourfive = randcolour();
+                opt3 = AreColorsSimilar(colourfour, colourfive, tol);
+            }
+
+            while (!opt4)
+            {
+                coloursix = randcolour();
+                opt4 = AreColorsSimilar(colourfive, coloursix, tol);
+            }
+
+            if(opt0 && opt1 && opt2 && opt3 && opt4)
+            {
+                lc.Add(colourone);
+                lc.Add(colourtwo);
+                lc.Add(colourthree);
+                lc.Add(colourfour);
+                lc.Add(colourfive);
+                lc.Add(coloursix);
+                lc.Add(outlier);
+            }
+
+            return lc;
+        }
+
+        Color averagecolor(Color c1, Color c2, Color c3, Color c4, Color c5, Color c6)
+        {
+            int aaverage = ((c1.A + c2.A + c3.A + c4.A + c5.A + c6.A) / 6);
+            int raverage = ((c1.R + c2.R + c3.R + c4.R + c5.R + c6.R) / 6);
+            int gaverage = ((c1.G + c2.G + c3.G + c4.G + c5.G + c6.G) / 6);
+            int baverage = ((c1.B + c2.B + c3.B + c4.B + c5.B + c6.B) / 6);
+            Color average = Color.FromArgb(aaverage, raverage, gaverage, baverage);
+            return average;
+
+        }
+
+        bool AreColorsSimilar(Color c1, Color c2, int tolerance)
+        {
+            return Math.Abs(c1.R - c2.R) < tolerance &&
+                   Math.Abs(c1.G - c2.G) < tolerance &&
+                   Math.Abs(c1.B - c2.B) < tolerance;
+        }
+
+        bool AreColorsUnSimilar(Color c1, Color c2, int tolerance)
+        {
+            return Math.Abs(c1.R - c2.R) > tolerance &&
+                   Math.Abs(c1.G - c2.G) > tolerance &&
+                   Math.Abs(c1.B - c2.B) > tolerance;
+        }
+
         public List<Point> getAllPositions(string dim)
         {
             List<Point> points = new List<Point> { };
@@ -192,13 +311,35 @@ namespace primageneratorx
             memoryStream = null;
             byteBuffer = null;
 
-            Color PRIMARY = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
-            Color SECONDARY = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
-            Color HIGHLIGHT = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
-            Color FEET = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
-            Color LEGS = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
-            Color FACE = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
-            Color WEIRD = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
+            Color PRIMARY;
+            Color SECONDARY;
+            Color HIGHLIGHT;
+            Color FEET;
+            Color LEGS;
+            Color FACE;
+            Color WEIRD;
+
+            if (checkBox3.Checked)
+            {
+                List<Color> lc = getSimilarColours();
+                PRIMARY = lc[1];
+                SECONDARY = lc[2];
+                HIGHLIGHT = lc[3];
+                FEET = lc[4];
+                LEGS = lc[0];
+                FACE = lc[6];
+                WEIRD = lc[0];
+            }
+            else
+            {
+                PRIMARY = randcolour();
+                SECONDARY = randcolour();
+                HIGHLIGHT = randcolour();
+                FEET = randcolour();
+                LEGS = randcolour();
+                FACE = randcolour();
+                WEIRD = randcolour();
+            }
 
             SolidBrush pr = new SolidBrush(PRIMARY);
             SolidBrush se = new SolidBrush(SECONDARY);
@@ -285,11 +426,6 @@ namespace primageneratorx
             info.Show();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             using (var fbd = new FolderBrowserDialog())
@@ -308,7 +444,7 @@ namespace primageneratorx
             for (int i = 0; i < numericUpDown1.Value + 1; i++)
             {
                 Bitmap cur = doPrima("1x1", false, false);
-                cur.Save(batchPath + "/" + i + ".png", ImageFormat.Png);
+                cur.Save(batchPath + "/prim" + i + ".png", ImageFormat.Png);
                 this.Invoke(new MethodInvoker(delegate ()
                 {
                     label3.Text = i + "/" + numericUpDown1.Value;
@@ -317,7 +453,7 @@ namespace primageneratorx
                     progressBar1.Value = i;
                 }));
 
-                Thread.Sleep(25);
+                Thread.Sleep(10);
             }
         }
 
@@ -328,10 +464,18 @@ namespace primageneratorx
                 numericUpDown1.Enabled = false;
                 button4.Enabled = false;
                 button5.Enabled = false;
+                checkBox1.Checked = false;
+                checkBox1.Enabled = false;
+
                 Thread a = new Thread(() => doPrimaBatch());
                 a.IsBackground = true;
                 a.Start();
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "$rand";
         }
     }
 }
