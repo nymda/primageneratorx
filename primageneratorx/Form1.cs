@@ -13,6 +13,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//you never commented this. good luck. 
+
 namespace primageneratorx
 {
     public partial class Form1 : Form
@@ -462,7 +464,7 @@ namespace primageneratorx
                 {
                     label3.Text = i + "/" + numericUpDown1.Value;
                     progressBar1.Maximum = (int)numericUpDown1.Value;
-                    Console.WriteLine(i + "/" + (int)numericUpDown1.Value);
+                    //Console.WriteLine(i + "/" + (int)numericUpDown1.Value);
                     progressBar1.Value = i;
                 }));
 
@@ -577,6 +579,29 @@ namespace primageneratorx
             {
                 e.X = mev.X;
                 e.Y = mev.Y;
+
+                //buffer around selectable area
+                if(e.X > 302)
+                {
+                    e.X = 302;
+                }
+
+                if(e.Y > 302)
+                {
+                    e.Y = 302;
+                }
+
+                if (e.X < 8)
+                {
+                    e.X = 8;
+                }
+
+                if (e.Y < 8)
+                {
+                    e.Y = 8;
+                }
+
+                Console.WriteLine(e.X + " " + e.Y);
             }
             else
             {
@@ -667,6 +692,7 @@ namespace primageneratorx
             label5.BackColor = c3;
 
             Color color;
+
             color = b.GetPixel(o.X + 5, o.Y + 5);
             if (color == Color.Black)
             {
