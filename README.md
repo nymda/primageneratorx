@@ -2,6 +2,7 @@
 Creates primagen characters using a base
 
 Modes:
+
 -True random
 uses actual random colour values, normally produces nasty results
 
