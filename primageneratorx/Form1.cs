@@ -44,6 +44,12 @@ namespace primageneratorx
         private void button1_Click(object sender, EventArgs e)
         {
             string dim = textBox1.Text + "x" + textBox2.Text;
+
+            if(comboBox1.Text == "Wheel")
+            {
+                doGraphicShit(null);
+            }
+
             try
             {
                 Thread a = new Thread(() => doPrima(dim, true, true));
