@@ -39,26 +39,26 @@ namespace primageneratorx
         public Color FACE;
         public Color WEIRD;
 
+        public Color ct = Color.FromArgb(240, 240, 240);
+
         public string batchPath;
+
+        public bool doColourBoxes = false;
+        public bool doColourLines = false;
 
         private void button1_Click(object sender, EventArgs e)
         {
             string dim = textBox1.Text + "x" + textBox2.Text;
 
-            if(comboBox1.Text == "Wheel")
-            {
-                doGraphicShit(null);
-            }
-
             try
             {
-                Thread a = new Thread(() => doPrima(dim, true, true));
+                Thread a = new Thread(() => doPrima(dim, true, true, null));
                 a.IsBackground = true;
                 a.Start();
             }
             catch
             {
-                doPrima("1x1", true, true);
+                doPrima("1x1", true, true, null);
             }
         }
 
@@ -85,7 +85,7 @@ namespace primageneratorx
             }
         }
 
-        public Bitmap doPrima(string dim, bool doDisplayProc, bool doProgressProc)
+        public Bitmap doPrima(string dim, bool doDisplayProc, bool doProgressProc, MouseEventArgs mev)
         {
             String[] dimr = dim.Split('x');
             int dimx = Int32.Parse(dimr[0]);
@@ -111,6 +111,15 @@ namespace primageneratorx
 
             foreach (Point p in positions)
             {
+
+                this.Invoke(new MethodInvoker(delegate ()
+                {
+                    if (comboBox1.Text == "Wheel")
+                    {
+                        doGraphicShit(mev);
+                    }
+                }));
+
                 Bitmap prima = GetNewPrima(true);
                 if (checkBox2.Checked)
                 {
@@ -159,7 +168,7 @@ namespace primageneratorx
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            doPrima("1x1", true, false);
+            doPrima("1x1", true, false, null);
             INIT_COLOUR_WHEEL();
         }
 
@@ -464,7 +473,7 @@ namespace primageneratorx
         {
             for (int i = 0; i < numericUpDown1.Value + 1; i++)
             {
-                Bitmap cur = doPrima("1x1", false, false);
+                Bitmap cur = doPrima("1x1", false, false, null);
                 cur.Save(batchPath + "/prim" + i + ".png", ImageFormat.Png);
                 this.Invoke(new MethodInvoker(delegate ()
                 {
@@ -615,7 +624,9 @@ namespace primageneratorx
             }
 
             Graphics g = Graphics.FromImage(b);
-            g.FillRectangle(Brushes.White, 0, 0, 310, 310);
+
+            Brush ctr = new SolidBrush(ct);
+            g.FillRectangle(ctr, 0, 0, 310, 310);
             g.DrawImage(back, 0, 0);
             Point p = new Point(e.X, e.Y);
             Point o = new Point(150 - (e.X - 150), 150 - (e.Y - 150));
@@ -629,8 +640,21 @@ namespace primageneratorx
                 colorOp = Color.Black;
             }
 
-            g.DrawRectangle(Pens.Black, p.X, p.Y, 1, 1);
-            g.DrawRectangle(Pens.Black, o.X, o.Y, 1, 1);
+            getRect(g, Pens.Black, o, 3);
+            getRect(g, Pens.Black, p, 3);
+
+            if (doColourBoxes)
+            {
+                getRect(g, Pens.Black, p, baseSize);
+                getRect(g, Pens.Black, o, baseSize);
+            }
+
+            if (doColourLines)
+            {
+                g.DrawLine(Pens.Black, p, o);
+            }
+
+
             pictureBox2.Image = b;
             label7.BackColor = colorOp;
 
@@ -647,7 +671,7 @@ namespace primageneratorx
                     }
                     else
                     {
-                        pixels.Add(Color.Black);
+                        pixels.Add(ct);
                     }
                 }
             }
@@ -668,7 +692,7 @@ namespace primageneratorx
                     }
                     catch
                     {
-                        cur = Color.Black;
+                        cur = ct;
                     }
 
                     gr.DrawRectangle(new Pen(cur), i, f, 1, 1);
@@ -755,7 +779,7 @@ namespace primageneratorx
             return modif;
         }
 
-        private void getCircle(Graphics drawingArea, Pen penToUse, Point center, int radius)
+        private void getRect(Graphics drawingArea, Pen penToUse, Point center, int radius)
         {
             Rectangle rect = new Rectangle(center.X - radius, center.Y - radius, radius * 2, radius * 2);
             Point rectP = new Point(rect.X, rect.Y);
@@ -775,13 +799,13 @@ namespace primageneratorx
             string dim = textBox1.Text + "x" + textBox2.Text;
             try
             {
-                Thread a = new Thread(() => doPrima(dim, true, true));
+                Thread a = new Thread(() => doPrima(dim, true, true, null));
                 a.IsBackground = true;
                 a.Start();
             }
             catch
             {
-                doPrima("1x1", true, true);
+                doPrima("1x1", true, true, null);
             }
         }
 
@@ -792,13 +816,13 @@ namespace primageneratorx
             string dim = textBox1.Text + "x" + textBox2.Text;
             try
             {
-                Thread a = new Thread(() => doPrima(dim, true, true));
+                Thread a = new Thread(() => doPrima(dim, true, true, e));
                 a.IsBackground = true;
                 a.Start();
             }
             catch
             {
-                doPrima("1x1", true, true);
+                doPrima("1x1", true, true, e);
             }
         }
 
@@ -825,6 +849,16 @@ namespace primageneratorx
             {
                 this.Size = NoWheel;
             }
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            doColourBoxes = !doColourBoxes;
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            doColourLines = !doColourLines;
         }
     }
 }
