@@ -629,7 +629,7 @@ namespace primageneratorx
             g.FillRectangle(ctr, 0, 0, 310, 310);
             g.DrawImage(back, 0, 0);
             Point p = new Point(e.X, e.Y);
-            Point o = new Point(150 - (e.X - 150), 150 - (e.Y - 150));
+            Point o = new Point(154 - (e.X - 154), 154 - (e.Y - 154));
             Color colorOp;
             if (p.X > 0 && p.Y > 0)
             {
