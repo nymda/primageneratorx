@@ -64,6 +64,7 @@ namespace primageneratorx
             this.label10 = new System.Windows.Forms.Label();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.RefCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -74,7 +75,7 @@ namespace primageneratorx
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(538, 12);
+            this.button1.Location = new System.Drawing.Point(703, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -86,14 +87,14 @@ namespace primageneratorx
             // 
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(520, 610);
+            this.pictureBox1.Size = new System.Drawing.Size(684, 369);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(561, 41);
+            this.textBox1.Location = new System.Drawing.Point(725, 36);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(52, 20);
             this.textBox1.TabIndex = 2;
@@ -101,14 +102,14 @@ namespace primageneratorx
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(11, 628);
+            this.progressBar1.Location = new System.Drawing.Point(11, 387);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(602, 23);
+            this.progressBar1.Size = new System.Drawing.Size(685, 23);
             this.progressBar1.TabIndex = 3;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(538, 234);
+            this.button2.Location = new System.Drawing.Point(702, 229);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
@@ -119,7 +120,7 @@ namespace primageneratorx
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(538, 142);
+            this.checkBox1.Location = new System.Drawing.Point(702, 137);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(63, 30);
             this.checkBox1.TabIndex = 5;
@@ -128,7 +129,7 @@ namespace primageneratorx
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(538, 205);
+            this.button3.Location = new System.Drawing.Point(702, 200);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 6;
@@ -138,7 +139,7 @@ namespace primageneratorx
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(561, 67);
+            this.textBox2.Location = new System.Drawing.Point(725, 62);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(52, 20);
             this.textBox2.TabIndex = 7;
@@ -147,7 +148,7 @@ namespace primageneratorx
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(538, 44);
+            this.label1.Location = new System.Drawing.Point(702, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(17, 13);
             this.label1.TabIndex = 8;
@@ -156,7 +157,7 @@ namespace primageneratorx
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(538, 70);
+            this.label2.Location = new System.Drawing.Point(702, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(17, 13);
             this.label2.TabIndex = 9;
@@ -167,7 +168,7 @@ namespace primageneratorx
             this.checkBox2.AutoSize = true;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(541, 93);
+            this.checkBox2.Location = new System.Drawing.Point(705, 88);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(54, 17);
             this.checkBox2.TabIndex = 10;
@@ -181,9 +182,9 @@ namespace primageneratorx
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Location = new System.Drawing.Point(538, 500);
+            this.groupBox1.Location = new System.Drawing.Point(705, 288);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(75, 122);
+            this.groupBox1.Size = new System.Drawing.Size(72, 122);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "batch";
@@ -201,7 +202,7 @@ namespace primageneratorx
             // 
             this.button5.Location = new System.Drawing.Point(7, 74);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(62, 23);
+            this.button5.Size = new System.Drawing.Size(59, 23);
             this.button5.TabIndex = 14;
             this.button5.Text = "start";
             this.button5.UseVisualStyleBackColor = true;
@@ -221,7 +222,7 @@ namespace primageneratorx
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(62, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(60, 20);
             this.numericUpDown1.TabIndex = 13;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -233,7 +234,7 @@ namespace primageneratorx
             // 
             this.button4.Location = new System.Drawing.Point(6, 45);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(62, 23);
+            this.button4.Size = new System.Drawing.Size(60, 23);
             this.button4.TabIndex = 12;
             this.button4.Text = "dir";
             this.button4.UseVisualStyleBackColor = true;
@@ -241,7 +242,7 @@ namespace primageneratorx
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(538, 116);
+            this.textBox3.Location = new System.Drawing.Point(702, 111);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(60, 20);
             this.textBox3.TabIndex = 12;
@@ -249,7 +250,7 @@ namespace primageneratorx
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(601, 116);
+            this.button6.Location = new System.Drawing.Point(765, 111);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(15, 20);
             this.button6.TabIndex = 13;
@@ -259,7 +260,7 @@ namespace primageneratorx
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(632, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(793, 7);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(310, 310);
             this.pictureBox2.TabIndex = 15;
@@ -269,7 +270,7 @@ namespace primageneratorx
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1023, 261);
+            this.label6.Location = new System.Drawing.Point(1184, 256);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 13);
             this.label6.TabIndex = 24;
@@ -278,7 +279,7 @@ namespace primageneratorx
             // trackBar1
             // 
             this.trackBar1.LargeChange = 10;
-            this.trackBar1.Location = new System.Drawing.Point(948, 277);
+            this.trackBar1.Location = new System.Drawing.Point(1109, 272);
             this.trackBar1.Minimum = 1;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(100, 45);
@@ -291,7 +292,7 @@ namespace primageneratorx
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(948, 182);
+            this.label5.Location = new System.Drawing.Point(1109, 177);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 13);
             this.label5.TabIndex = 22;
@@ -300,7 +301,7 @@ namespace primageneratorx
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(948, 169);
+            this.label4.Location = new System.Drawing.Point(1109, 164);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 13);
             this.label4.TabIndex = 21;
@@ -309,7 +310,7 @@ namespace primageneratorx
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(948, 156);
+            this.label7.Location = new System.Drawing.Point(1109, 151);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 13);
             this.label7.TabIndex = 20;
@@ -317,7 +318,7 @@ namespace primageneratorx
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(948, 117);
+            this.button7.Location = new System.Drawing.Point(1109, 112);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 23);
             this.button7.TabIndex = 19;
@@ -327,7 +328,7 @@ namespace primageneratorx
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(948, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(1109, 7);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 99);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -337,7 +338,7 @@ namespace primageneratorx
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(948, 143);
+            this.label8.Location = new System.Drawing.Point(1109, 138);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 13);
             this.label8.TabIndex = 17;
@@ -346,7 +347,7 @@ namespace primageneratorx
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(948, 210);
+            this.label9.Location = new System.Drawing.Point(1109, 205);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 13);
             this.label9.TabIndex = 16;
@@ -359,7 +360,7 @@ namespace primageneratorx
             "Random",
             "Wheel",
             "RandNice"});
-            this.comboBox1.Location = new System.Drawing.Point(538, 178);
+            this.comboBox1.Location = new System.Drawing.Point(702, 173);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(75, 21);
             this.comboBox1.TabIndex = 26;
@@ -378,7 +379,7 @@ namespace primageneratorx
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(632, 328);
+            this.checkBox4.Location = new System.Drawing.Point(793, 323);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(55, 17);
             this.checkBox4.TabIndex = 28;
@@ -389,7 +390,7 @@ namespace primageneratorx
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(632, 351);
+            this.checkBox5.Location = new System.Drawing.Point(793, 346);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(51, 17);
             this.checkBox5.TabIndex = 29;
@@ -397,12 +398,23 @@ namespace primageneratorx
             this.checkBox5.UseVisualStyleBackColor = true;
             this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
+            // RefCheck
+            // 
+            this.RefCheck.AutoSize = true;
+            this.RefCheck.Location = new System.Drawing.Point(703, 258);
+            this.RefCheck.Name = "RefCheck";
+            this.RefCheck.Size = new System.Drawing.Size(69, 30);
+            this.RefCheck.TabIndex = 30;
+            this.RefCheck.Text = "Refsheet\r\nmode\r\n";
+            this.RefCheck.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(627, 657);
+            this.ClientSize = new System.Drawing.Size(789, 425);
+            this.Controls.Add(this.RefCheck);
             this.Controls.Add(this.checkBox5);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.label10);
@@ -433,6 +445,8 @@ namespace primageneratorx
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Prim-o-tron";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -482,6 +496,7 @@ namespace primageneratorx
         private Label label10;
         private CheckBox checkBox4;
         private CheckBox checkBox5;
+        private CheckBox RefCheck;
     }
 }
 
