@@ -14,3 +14,7 @@ normally creates fairly nice results
 uses a colour wheel to pick what a base colour and a selection of random colours from around the base one
 then also takes a colour from the opposite side to use as a highlight
 produces the best and most cusotmisable results
+
+------
+
+This program is a joke, please dont be offended by it
